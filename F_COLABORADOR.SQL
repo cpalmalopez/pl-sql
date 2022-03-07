@@ -69,7 +69,7 @@ BEGIN
             RETURN 2;
         END IF;        
     ELSE 
-		SELECT SPERSON.NEXTVAL
+		SELECT AXIS_DESA.SPERSON.NEXTVAL
         INTO SEQ_SPERSON
         FROM DUAL;
 
@@ -103,19 +103,19 @@ BEGIN
         VALUES (
             SEQ_SPERSON, -- SPERSON
             I_RUT, -- NNUMIDE
-            NULL,  -- NORDIDE
-            NULL,  -- CTIPIDE
+            1,  -- NORDIDE
+            41,  -- CTIPIDE
             I_SEXO, -- CSEXPER
             I_FECHA_NACIMIENTO, -- FNACIMI 
-            NULL, -- CESTPER
+            0, -- CESTPER
             NULL, -- FJUBILA
-            NULL, -- CUSUARI
-            NULL, -- FMOVIMI
+            'AXIS_REALE', -- CUSUARI
+            SYSDATE, -- FMOVIMI
             NULL, -- CMUTIALISTA
             NULL, -- FDEFUNC
             NULL, -- SNIP
-            NULL, -- SWPUBLI
-            NULL, -- CTIPPER
+            1, -- SWPUBLI
+            1, -- CTIPPER
             I_DV, -- TDIGITOIDE
             NULL, -- CPREAVISO
             NULL, -- CAGENTE
@@ -136,9 +136,9 @@ BEGIN
             TBUSCAR, 
             CESTCIV,
             CPAIS, 
-            CUSUARI, 
+            CUSUARI, -- NOT NULL
             FMOVIMI, -- NOT NULL
-            TNOMBRE1, -- NOT NULL
+            TNOMBRE1, 
             TNOMBRE2,
             COCUPACION,
             NOMFANTASIA, 
@@ -146,7 +146,7 @@ BEGIN
         )
         VALUES (
             SEQ_SPERSON, -- SPERSON
-            NULL, -- CAGENTE
+            1000000001, -- CAGENTE
             NULL, -- CIDIOMA
             I_APELLIDO_P, -- TAPELLI1
             I_APELLIDO_M, -- TAPELLI2
@@ -156,8 +156,8 @@ BEGIN
             NULL, -- TBUSCAR
             NULL, -- CESTCIV
             NULL, -- CPAIS
-            NULL, -- CUSUARI
-            NULL,  -- FMOVIMI
+            'AXIS_REALE', -- CUSUARI
+            SYSDATE,  -- FMOVIMI
             I_PRIMER_NOMBRE, -- TNOMBRE1
             NULL, -- TNOMBRE2
             NULL, -- OCUPACION
@@ -177,8 +177,8 @@ BEGIN
         )
         VALUES (
             SEQ_SPERSON, -- SPERSON
-            NULL, -- CAGENTE
-            NULL, -- CTIPIDE
+            1000000001, -- CAGENTE
+            41, -- CTIPIDE
             I_RUT, -- NNUMIDE
             NULL, -- SWIDEPRI
             NULL, -- FEMISIO
